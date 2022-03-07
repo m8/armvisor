@@ -6,13 +6,13 @@ extern void     writeEOIGrp0(uint64_t);
 
 void __arch_enable_irq(void)
 {
-	__asm__ volatile("msr DAIFClr, %0" :: "i"(DAIF_IRQ_BIT));
+	ASM("msr DAIFClr, %0" :: "i"(DAIF_IRQ_BIT));
     return;
 }
 
 void __arch_disable_irq(void)
 {
-	__asm__ volatile ("msr DAIFSet, %0 \n" :: "i"(DAIF_IRQ_BIT));
+	ASM("msr DAIFSet, %0" :: "i"(DAIF_IRQ_BIT));
     return;
 };
 
